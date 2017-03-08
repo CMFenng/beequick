@@ -1,6 +1,4 @@
-﻿e:
-cd GitHub
-cd hello-world
+﻿cd e:github/hello-world
 git add --all
-git commit -m "自动提交"
+git commit -m "auto commit"
 git push
