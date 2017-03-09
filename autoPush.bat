@@ -1,5 +1,5 @@
 e:
-cd GitHub\hello-world
+cd GitHub\note
 git add --all
 git commit -m "Commit by CMF"
 git push
