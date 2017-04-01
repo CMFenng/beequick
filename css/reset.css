@@ -1,0 +1,82 @@
+*{
+	margin: 0;
+	padding: 0;
+	/*
+	* 实际上同时作用于 所有标签（123）
+	* 						 89
+	 */
+/*}*/
+
+body{
+	margin: 0;
+	/*body 四周默认存在 8px 的 margin*/
+}
+p{
+	margin: 0;
+	/*p 上下存在 16px 的 margin */
+}
+h1,h2,h3,h4,h5,h6{
+	margin: 0;
+	/*标题上下存在对应 margin*/
+}
+blockquote{
+	margin: 0;
+	/*
+	 上下存在 16px margin
+	 左右存在 40px margin
+	 */
+}
+address{
+	font-style: normal;
+}
+ul , ol{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	/*
+	ul 和 ol
+		上下存在 16px margin
+		左侧存在 40px padding-left
+		有默认的列表样式存在
+	 */
+}
+dl , dd{
+	margin: 0;
+	/*
+	dl 上下存在 16px 的 margin
+
+	dd 左侧存在 40px 的 margin-left
+	 */
+}
+/*===================================*/
+a{
+	color: #000;
+	text-decoration: none;
+}
+em{
+	font-style: normal;
+}
+strong{
+	font-weight: normal;
+}
+input{
+	outline: none;
+}
+img{
+	border: none;
+}
+/*=================================*/
+/*清除浮动*/
+.clearFix:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.clearFix{
+	zoom: 1;
+}
+
+
+
+
+
