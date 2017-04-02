@@ -1,0 +1,24 @@
+/* 滚动的可视区域 */
+/* 该元素以 body 为基准，将滚动的可视区域填充除 header 之外的 body 部分 */
+#home #scroller{
+	width: 100%;
+	/*height: 14.15625rem;*/
+	position: absolute;
+	top: 1.71875rem;
+	/* bottom: 0;可以代替设置 height */
+	bottom: 0;
+	background-color: pink;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#home #home_content{
+	width: 100%;
+}
+
+#home .test{
+	width: 9.375rem;
+	height: 3.125rem;
+	background-color: darkcyan;
+	margin: 0.3125rem;
+}

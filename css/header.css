@@ -1,0 +1,7 @@
+/* 公共头部样式表 */
+#header{
+	width: 100%;
+	height: 1.71875rem;
+	background-color: #FFD600;
+	position: absolute;
+}

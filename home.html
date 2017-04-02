@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 理想视口 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>首页</title>
+    <!-- 初始化样式表 -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <!-- home 样式表 -->
+    <link rel="stylesheet" type="text/css" href="css/home.css"/>
+    <!-- header 样式表 -->
+    <link rel="stylesheet" type="text/css" href="css/header.css"/>
+    <script type="text/javascript" src="js/flexible.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+    	$(function () {
+    		var s = $("#home_header").load("header.html #header");
+    		console.log(s[0]);
+    	})
+    </script>
+</head>
+<body>
+<!-- 首页 -->
+<div id="home">
+	<div id="home_header"></div>
+	<!-- 滚动的可视区域 -->
+	<div id="scroller">
+		<div id="home_content">
+			<div class="test"></div>
+			<div class="test"></div>
+			<div class="test"></div>
+			<div class="test"></div>
+			<div class="test"></div>
+			<div class="test"></div>
+			<div class="test"></div>
+			<div class="test"></div>
+			<div class="test"></div>
+			<div class="test"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
