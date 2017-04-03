@@ -20,78 +20,238 @@
     <script type="text/javascript" src="lib/baiduTemplate.js"></script>
     
     <script type="text/javascript">
-    	$(function () {
-    		// 导入公共 header
-    		$("#home_header").load("header.html #header");
-    		
-    		// 模拟的轮播图数据
-    		var imgArr = [
-				"img/banner1.jpg",
-				"img/banner2.jpg",
-				"img/banner3.jpg",
-				"img/banner4.jpg"
-			];
-			// 加载轮播图
-			bannerFn(imgArr);
-			
-			
-    		
-    	})
-    	
-    	// 轮播图
-    	function bannerFn (imgArr) {
-    		// 将数据封装成一个对象，并利用百度模板创建 html
-			var bannerObj = {
-				imgArr : imgArr
-			}
-			// 模板生成的是一个字符串
-			var bannerStr = baidu.template('bannerImg', bannerObj);
-			// 将字符串解析为 html 代码
-			$('.swiper-wrapper').html(bannerStr);
-			
-			// 轮播图轮播效果（要先创建 html 后才可以写效果，不然会出现即使加载到图片也不会轮播的情况）
-    		var mySwiper = new Swiper('.swiper-container', {
-				//可选选项，自动滑动
-				autoplay : 3000,
-				// 速度
-				speed : 500,
-				//手动滑动之后，依然可以自动轮播
-				autoplayDisableOnInteraction : false,
-				//分页器
-				pagination : '.swiper-pagination',
-				//环路
-				loop : true
-			});
-    	}
+        $(function () {
+           // 导入公共 header
+            $("#home_header").load("header.html #header");
+            
+            // 模拟的轮播图数据
+            var imgArr = [
+                "img/banner1.jpg",
+                "img/banner2.jpg",
+                "img/banner3.jpg",
+                "img/banner4.jpg"
+            ];
+            // 加载轮播图
+            bannerFn(imgArr);
+            
+            // 模拟的主题列表数据
+            var themeArr =[
+                {
+                    url : "img/gongying.png",
+                    themeName : "鲜货直供"
+                },{
+                    url : "img/food.png",
+                    themeName : "零食"
+                },{
+                    url : "img/shuanmiMarket.png",
+                    themeName : "闪送超市"
+                }
+            ];
+            // 加载主题列表
+            themeUlFn(themeArr);
+            
+            // 加载种类列表
+            categoryUl();
+            
+        })
+        
+        // 轮播图
+        function bannerFn (imgArr) {
+            // 将数据封装成一个对象，并利用百度模板创建 html
+            var bannerObj = {
+                imgArr : imgArr
+            }
+            // 模板生成的是一个字符串
+            var bannerStr = baidu.template('banner_tpl', bannerObj);
+            // 将字符串解析为 html 代码
+            $('.swiper-wrapper').html(bannerStr);
+            
+            // 轮播图轮播效果（要先创建 html 后才可以写效果，不然会出现即使加载到图片也不会轮播的情况）
+            var mySwiper = new Swiper('.swiper-container', {
+                //可选选项，自动滑动
+                autoplay : 3000,
+                // 速度
+                speed : 500,
+                //手动滑动之后，依然可以自动轮播
+                autoplayDisableOnInteraction : false,
+                //分页器
+                pagination : '.swiper-pagination',
+                //环路
+                loop : true
+            });
+        }
+        
+        // 主题列表
+        function themeUlFn (themeArr) {
+            // 将数据封装成一个对象，并利用百度模板创建 html
+            var themeObj = {
+                themeArr : themeArr
+            }
+            // 模板生成的是一个字符串
+            var themeStr = baidu.template('theme_tpl', themeObj);
+            // 将字符串解析为 html 代码
+            $('#themeUl').html(themeStr);
+        }
+        
+        // 种类列表
+        function categoryUl () {
+            // 将数据封装成一个对象，并利用百度模板创建 html
+            var categoryObj = {
+//              categoryArr : categoryArr
+            }
+            // 模板生成的是一个字符串
+            var categoryStr = baidu.template('category_tpl', categoryObj);
+            // 将字符串解析为 html 代码
+            $('#categoryUl').html(categoryStr);
+        }
     </script>
 </head>
 <body>
 <!-- 首页 -->
 <div id="home">
-	<div id="home_header"></div>
-	<!-- 滚动的可视区域 -->
-	<div id="scroller">
-		<div id="home_content">
-			<!-- 轮播图容器 -->
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<!--<div class="swiper-slide"><img src="img/banner1.jpg" /></div>
-					<div class="swiper-slide"><img src="img/banner2.jpg" /></div>
-					<div class="swiper-slide"><img src="img/banner3.jpg" /></div>
-					<div class="swiper-slide"><img src="img/banner4.jpg" /></div>-->
-				</div>
-				<!-- 分页器容器 -->
-				<div class="swiper-pagination"></div>
-			</div>
-		</div>
-	</div>
+    <div id="home_header"></div>
+    <!-- 滚动的可视区域 -->
+    <div id="scroller">
+        <div id="home_content">
+            <!-- 轮播图容器 -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!--<div class="swiper-slide"><img src="img/banner1.jpg" /></div>
+                    <div class="swiper-slide"><img src="img/banner2.jpg" /></div>
+                    <div class="swiper-slide"><img src="img/banner3.jpg" /></div>
+                    <div class="swiper-slide"><img src="img/banner4.jpg" /></div>-->
+                </div>
+                <!-- 分页器容器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            
+            <!-- 主题列表 -->
+            <ul id="themeUl">
+                <!--<li class="themeItemLi">
+                    <div class="themeItemImg" style="background-image: url(img/gongying.png);"></div>
+                    <p class="itemName">鲜货直供</p>
+                </li>
+                <li class="themeItemLi">
+                    <div class="themeItemImg" style="background-image: url(img/gongying.png);"></div>
+                    <p class="itemName">鲜货直供</p>
+                </li>
+                <li class="themeItemLi">
+                    <div class="themeItemImg" style="background-image: url(img/gongying.png);"></div>
+                    <p class="itemName">鲜货直供</p>
+                </li>-->
+            </ul>
+            
+            <!-- 种类列表 -->
+            <ul id="categoryUl">
+                <!--<li class="categoryItemLi">
+                    <div class="categoryItemHeader">
+                        <span class="headerTitle">牛奶面包</span>
+                        <span class="headerMore">更多<span class="moreSpace"></span></span>
+                    </div>
+                    <div class="categoryItemBanner" style="background-image: url(http://img01.bqstatic.com//upload/activity/2016090718042575.jpg@90Q.jpg);"></div>
+                    <ul class="categoryItemGoodUl">
+                        <li class="productItemLi">
+                            <div class="product">
+                                <div class="productImg" style="background-image: url(img/weitaMilk.jpg);"></div>
+                                <div class="productName">维他奶原味豆奶</div>
+                                <div class="productPromotion">&nbsp;</div>
+                                <div class="productSpecifics">250ml</div>
+                                <div class="productPrice">
+                                    <span class="currentPrice">￥3</span>
+                                </div>
+                                <div class="productOperates">
+                                    <span class="productAdd">
+                                        <span class="inner"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="productItemLi">
+                            <div class="product">
+                                <div class="productImg" style="background-image: url(img/weitaMilk.jpg);"></div>
+                                <div class="productName">维他奶原味豆奶</div>
+                                <div class="productPromotion">&nbsp;</div>
+                                <div class="productSpecifics">250ml</div>
+                                <div class="productPrice">
+                                    <span class="currentPrice">￥3</span>
+                                </div>
+                                <div class="productOperates">
+                                    <span class="productAdd">
+                                        <span class="inner"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="productItemLi">
+                            <div class="product">
+                                <div class="productImg" style="background-image: url(img/weitaMilk.jpg);"></div>
+                                <div class="productName">维他奶原味豆奶</div>
+                                <div class="productPromotion">&nbsp;</div>
+                                <div class="productSpecifics">250ml</div>
+                                <div class="productPrice">
+                                    <span class="currentPrice">￥3</span>
+                                </div>
+                                <div class="productOperates">
+                                    <span class="productAdd">
+                                        <span class="inner"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <div style="width: 100%; height: 1.875rem; background: rgba(0,255,0,0.5); position: absolute; bottom: 0;z-index: 2;"></div>
 </div>
 
 <!-- 模板：轮播图图片 -->
-<script type="text/template" id="bannerImg">
-	<% for (var img of imgArr) { %>
-		<div class="swiper-slide"><img src="<%= img %>"/></div>
-	<% } %>
+<script type="text/template" id="banner_tpl">
+    <% for (var img of imgArr) { %>
+        <div class="swiper-slide"><img src="<%= img %>"/></div>
+    <% } %>
+</script>
+<!-- 模板：主题列表 -->
+<script type="text/template" id="theme_tpl">
+    <% for (var theme of themeArr) { %>
+        <li class="themeItemLi">
+            <div class="themeItemImg" style="background-image: url(<%= theme.url %>);"></div>
+            <p class="themeItemName"><%= theme.themeName %></p>
+        </li>
+    <% } %>
+</script>
+<!-- 模板：种类列表 -->
+<script type="text/template" id="category_tpl">
+    <% for (var i = 0; i < 5; i++) { %>
+    	<li class="categoryItemLi">
+            <div class="categoryItemHeader">
+                <span class="headerTitle">牛奶面包</span>
+                <span class="headerMore">更多<span class="moreSpace"></span></span>
+            </div>
+            <div class="categoryItemBanner" style="background-image: url(http://img01.bqstatic.com//upload/activity/2016090718042575.jpg@90Q.jpg);"></div>
+            <ul class="categoryItemGoodUl">
+                <% for (var j = 0; j < 3; j++) { %>
+                    <li class="productItemLi">
+                        <div class="product">
+                            <div class="productImg" style="background-image: url(img/weitaMilk.jpg);"></div>
+                            <div class="productName">维他奶原味豆奶</div>
+                            <div class="productPromotion">&nbsp;</div>
+                            <div class="productSpecifics">250ml</div>
+                            <div class="productPrice">
+                                <span class="currentPrice">￥3</span>
+                            </div>
+                            <div class="productOperates">
+                                <span class="productAdd">
+                                    <span class="inner"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                <% } %>
+            </ul>
+        </li>
+    <% } %>
 </script>
 </body>
 </html>
