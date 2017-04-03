@@ -1,0 +1,21 @@
+header{
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+}
+
+.scroll-content{
+	position: absolute;
+	top:100px;
+	left:0;
+	right:0;
+	bottom:100px;
+	overflow: auto;
+}
+footer{
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:0 ;
+}
