@@ -7,7 +7,7 @@
 	top: 1.71875rem;
 	/* bottom: 0;可以代替设置 height */
 	bottom: 0;
-	background-color: pink;
+	background-color: #efefef;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -15,10 +15,34 @@
 #home #home_content{
 	width: 100%;
 }
-
-#home .test{
-	width: 9.375rem;
-	height: 3.125rem;
-	background-color: darkcyan;
-	margin: 0.3125rem;
+/*==========================================================*/
+/* 轮播图 */
+#home .swiper-container{
+	width: 100%;
+	height: 3.746593rem;
 }
+
+#home .swiper-container img{
+	width: 100%;
+	height: 3.746593rem;
+}
+
+/* 分页器 */
+#home .swiper-pagination{
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* 分页器指示器（小点）的默认 HTML 标签是 span */
+#home .swiper-pagination span{
+	width: 0.224625rem;
+	height: 0.224625rem;
+	margin: 0.075rem;
+	background-color: #ffd600;
+	box-shadow: 0 1px 0 grey inset;
+}
+
+#home .swiper-pagination span:last-of-type{
+	margin-right: 0.3125rem;
+}
+/*==========================================================*/

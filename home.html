@@ -11,13 +11,58 @@
     <link rel="stylesheet" type="text/css" href="css/home.css"/>
     <!-- header 样式表 -->
     <link rel="stylesheet" type="text/css" href="css/header.css"/>
+    <!-- 轮播图 -->
+    <link rel="stylesheet" type="text/css" href="lib/swiper-3.3.1.min.css"/>
     <script type="text/javascript" src="js/flexible.js"></script>
+    <script type="text/javascript" src="lib/swiper-3.3.1.min.js"></script>
     <script type="text/javascript" src="lib/jquery-3.1.1.js"></script>
+    <!-- 百度模板引擎 -->
+    <script type="text/javascript" src="lib/baiduTemplate.js"></script>
+    
     <script type="text/javascript">
     	$(function () {
-    		var s = $("#home_header").load("header.html #header");
-    		console.log(s[0]);
+    		// 导入公共 header
+    		$("#home_header").load("header.html #header");
+    		
+    		// 模拟的轮播图数据
+    		var imgArr = [
+				"img/banner1.jpg",
+				"img/banner2.jpg",
+				"img/banner3.jpg",
+				"img/banner4.jpg"
+			];
+			// 加载轮播图
+			bannerFn(imgArr);
+			
+			
+    		
     	})
+    	
+    	// 轮播图
+    	function bannerFn (imgArr) {
+    		// 将数据封装成一个对象，并利用百度模板创建 html
+			var bannerObj = {
+				imgArr : imgArr
+			}
+			// 模板生成的是一个字符串
+			var bannerStr = baidu.template('bannerImg', bannerObj);
+			// 将字符串解析为 html 代码
+			$('.swiper-wrapper').html(bannerStr);
+			
+			// 轮播图轮播效果（要先创建 html 后才可以写效果，不然会出现即使加载到图片也不会轮播的情况）
+    		var mySwiper = new Swiper('.swiper-container', {
+				//可选选项，自动滑动
+				autoplay : 3000,
+				// 速度
+				speed : 500,
+				//手动滑动之后，依然可以自动轮播
+				autoplayDisableOnInteraction : false,
+				//分页器
+				pagination : '.swiper-pagination',
+				//环路
+				loop : true
+			});
+    	}
     </script>
 </head>
 <body>
@@ -27,18 +72,26 @@
 	<!-- 滚动的可视区域 -->
 	<div id="scroller">
 		<div id="home_content">
-			<div class="test"></div>
-			<div class="test"></div>
-			<div class="test"></div>
-			<div class="test"></div>
-			<div class="test"></div>
-			<div class="test"></div>
-			<div class="test"></div>
-			<div class="test"></div>
-			<div class="test"></div>
-			<div class="test"></div>
+			<!-- 轮播图容器 -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<!--<div class="swiper-slide"><img src="img/banner1.jpg" /></div>
+					<div class="swiper-slide"><img src="img/banner2.jpg" /></div>
+					<div class="swiper-slide"><img src="img/banner3.jpg" /></div>
+					<div class="swiper-slide"><img src="img/banner4.jpg" /></div>-->
+				</div>
+				<!-- 分页器容器 -->
+				<div class="swiper-pagination"></div>
+			</div>
 		</div>
 	</div>
 </div>
+
+<!-- 模板：轮播图图片 -->
+<script type="text/template" id="bannerImg">
+	<% for (var img of imgArr) { %>
+		<div class="swiper-slide"><img src="<%= img %>"/></div>
+	<% } %>
+</script>
 </body>
 </html>
