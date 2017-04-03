@@ -1,7 +1,16 @@
+body{
+	background:#EFEFEF;
+}
+#my{
+	/*position: absolute;*/
+}
 /*显示用户信息的黄色部分*/
-/*#my .top{
-	position: fixed;
-}*/
+#my .top{
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+}
 #my .nav{
 	width: 100%;
 	height: 3.75rem;
@@ -93,8 +102,13 @@
 /*我的订单*/
 #my .order_wrap{
 	width: 10rem;
-	height: 20rem;
-	background:#EFEFEF;
+	/*height: 14.875rem;*/
+	position: absolute;
+	top:5.0625rem;
+	left:0;
+	right:0;
+	bottom:1.875rem;
+	overflow: auto;
 }
 #my .myOrder{
 	width: 10rem;
@@ -126,9 +140,6 @@
 	display: inline-block;
 }	
 /*待付款、待收货。。*/
-/*#my .myOrderBottom{
-	display: flex;
-}*/
 #my .myOrderBottomUl li{
 	/*display: inline-block;*/
 	float: left;
@@ -168,28 +179,66 @@
 #my .shopMarketUl a,#my .shopMarketUl2 a{
 	text-decoration: none;
 	color: black;
+	position: absolute;
+	margin-left: 0.125rem;
+	/*left: 0.3125rem;*/
+	/*text-align: center;*/
 }
 #my .shopMarketUl{
+	width: 100%;
 	height: 3.75rem;
 	border-bottom: 1px solid #999999;
 	display: flex;
 }
 #my .shopMarketUl li{
+	width:55%;
 	float: left;
 	list-style: none;
-	/*padding: 2.4375rem 1.15625rem 0 0;
-	margin: 0.375rem 0 0 0.5rem;*/
-	justify-content: center;
-	 /*flex-direction: row-reverse;*/
+	padding: 2.0375rem 1.15625rem 0 0;
+	margin: 0.375rem 0 0 0.53125rem;
 }
 #my .shopMarketUl li:nth-child(1){
-	background:url(../img/jifenshangcheng.png) no-repeat center;
-	background-size: 0.71875rem 0.875rem;
-	/*display: flex;
-	justify-content: space-around;*/
+	background:url(../img/jifenshangcheng.png) no-repeat 40% 30%;
+	background-size: 1.1125rem 1.01875rem;
+	/*justify-content: space-around;*/
 }
 #my .shopMarketUl li:nth-child(2){
-	background:url(../img/youhuiquan.png) no-repeat center;
-	background-size: 1.1125rem 1.01875rem;
-	
+	background:url(../img/youhuiquan.png) no-repeat 40% 30%;
+	background-size: 1.1125rem 1.01875rem;	
+}
+#my .shopMarketUl li:nth-child(3){
+	background:url(../img/shouhuoaddress.png) no-repeat 40% 30%;
+	background-size: 1.1125rem 1.01875rem;	
+}
+#my .shopMarketUl li:nth-child(4){
+	background:url(../img/kefu.png) no-repeat 40% 30%;
+	background-size: 1.1125rem 1.01875rem;	
+}
+#my .shopMarketUl2{
+	width: 100%;
+	height: 3.75rem;
+	position: absolute;
+	top: 3.75rem;
+	list-style: none;
+}
+#my .shopMarketUl2 li{
+	background:url(../img/guanyu.png) no-repeat 3% 50%;
+	background-size: 1.1125rem 1.01875rem;	
+	padding: 2.0375rem 1.15625rem 0 0;
+	margin: 0.375rem 0 0 0.53125rem;
+}
+/*退出当前账号*/
+#my .logout{
+	width: 10rem;
+	height: 1.6875rem;
+	font-size: 0.4375rem;
+	position: relative;
+	top: 1.85625rem;
+	text-align: center;
+	background: white;
+	line-height:1.6875rem;
+}
+
+#my .white-space{
+	height:1.6875rem;
 }
