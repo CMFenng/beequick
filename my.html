@@ -6,9 +6,6 @@
 
 scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<!--<link rel="stylesheet" type="text/css" 
-
-href="//at.alicdn.com/t/font_vyv5dsr20kjoflxr.css"/>-->
 		<link rel="stylesheet" type="text/css" 
 
 href="//at.alicdn.com/t/font_xhj8nvh0wz478pvi.css"/>
@@ -16,9 +13,7 @@ href="//at.alicdn.com/t/font_xhj8nvh0wz478pvi.css"/>
 		<link rel="stylesheet" type="text/css" href="css/my.css"/>
 		<link rel="stylesheet" href="css/footer.css" />
 		<script type="text/javascript" src="js/flexible.js"></script>
-		<style type="text/css">
-			
-		</style>
+		<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<!--最外层的div-->
@@ -96,12 +91,17 @@ href="//at.alicdn.com/t/font_xhj8nvh0wz478pvi.css"/>
 		</div>
 		<!--底层公共部分-->
 			<div class="footer">
-				<ul>
+				<!--<ul>
 					<li>首页</li>
 					<li>闪送超市</li>
 					<li>购物车</li>
 					<li>我的</li>
-				</ul>
+				</ul>-->
 			</div>
 	</body>
+	<script type="text/javascript">
+			$(function () {
+					$(".footer").load("footer.html");
+			})
+		</script>
 </html>
